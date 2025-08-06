@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard - InnoTech Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" xintegrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .sidebar {
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div class="flex h-screen bg-gray-200">
+        <!-- Sidebar -->
+        <div id="sidebar" class="fixed inset-y-0 left-0 z-30 w-64 bg-gray-800 text-white transform -translate-x-full md:relative md:translate-x-0 sidebar">
+            <div class="flex items-center justify-center h-20 border-b border-gray-700">
+                <h1 class="text-2xl font-bold">InnoTech</h1>
+            </div>
+            <nav class="mt-4">
+                <a href="#" class="flex items-center px-6 py-3 text-gray-100 bg-gray-700">
+                    <i class="fas fa-tachometer-alt w-6 h-6"></i>
+                    <span class="mx-3">Dashboard</span>
+                </a>
+                <a href="#" class="flex items-center px-6 py-3 text-gray-400 hover:bg-gray-700 hover:text-gray-100">
+                    <i class="fas fa-tasks w-6 h-6"></i>
+                    <span class="mx-3">My Tasks</span>
+                </a>
+                <a href="#" class="flex items-center px-6 py-3 text-gray-400 hover:bg-gray-700 hover:text-gray-100">
+                    <i class="fas fa-calendar-alt w-6 h-6"></i>
+                    <span class="mx-3">Calendar</span>
+                </a>
+                <a href="#" class="flex items-center px-6 py-3 text-gray-400 hover:bg-gray-700 hover:text-gray-100">
+                    <i class="fas fa-cogs w-6 h-6"></i>
+                    <span class="mx-3">Settings</span>
+                </a>
+                 <a href="#" class="flex items-center px-6 py-3 mt-8 text-gray-400 hover:bg-gray-700 hover:text-gray-100">
+                    <i class="fas fa-sign-out-alt w-6 h-6"></i>
+                    <span class="mx-3">Logout</span>
+                </a>
+            </nav>
+        </div>
+
+        <!-- Main content -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Header -->
+            <header class="flex items-center justify-between h-20 px-6 py-4 bg-white border-b-4 border-indigo-600">
+                <div class="flex items-center">
+                    <button id="sidebar-toggle" class="text-gray-500 focus:outline-none md:hidden">
+                        <i class="fas fa-bars fa-lg"></i>
+                    </button>
+                    <div class="relative mx-4 md:mx-0">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                            <i class="fas fa-search text-gray-500"></i>
+                        </span>
+                        <input class="w-full pl-10 pr-4 py-2 text-gray-700 bg-white border rounded-md focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none" type="text" placeholder="Search">
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <div class="relative">
+                        <button class="flex items-center text-gray-700 focus:outline-none">
+                            <img class="w-10 h-10 rounded-full object-cover" src="https://placehold.co/100x100/667eea/ffffff?text=U" alt="User Avatar">
+                            <span class="hidden md:inline-block ml-2">Jane Doe</span>
+                        </button>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Content -->
+            <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 p-6">
+                <div class="container mx-auto">
+                    <h2 class="text-3xl font-semibold text-gray-800 mb-6">Welcome back, Jane!</h2>
+                    
+                    <!-- Stats Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="text-lg font-medium text-gray-600">Projects Completed</h3>
+                            <p class="text-3xl font-bold text-indigo-600 mt-2">12</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="text-lg font-medium text-gray-600">Pending Tasks</h3>
+                            <p class="text-3xl font-bold text-teal-600 mt-2">5</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="text-lg font-medium text-gray-600">Meetings Today</h3>
+                            <p class="text-3xl font-bold text-red-600 mt-2">2</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="text-lg font-medium text-gray-600">Team Members</h3>
+                            <p class="text-3xl font-bold text-yellow-600 mt-2">8</p>
+                        </div>
+                    </div>
+
+                    <!-- My Tasks & Recent Activity -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+                        <div class="lg:col-span-2 bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">My Tasks</h3>
+                            <ul>
+                                <li class="flex justify-between items-center py-3 border-b">
+                                    <span>Finalize Q3 report</span>
+                                    <span class="px-2 py-1 text-xs font-semibold text-white bg-red-500 rounded-full">High</span>
+                                </li>
+                                <li class="flex justify-between items-center py-3 border-b">
+                                    <span>Prepare for client presentation</span>
+                                    <span class="px-2 py-1 text-xs font-semibold text-white bg-yellow-500 rounded-full">Medium</span>
+                                </li>
+                                <li class="flex justify-between items-center py-3 border-b">
+                                    <span>Submit weekly timesheet</span>
+                                    <span class="px-2 py-1 text-xs font-semibold text-white bg-green-500 rounded-full">Low</span>
+                                </li>
+                                <li class="flex justify-between items-center py-3">
+                                    <span>Onboarding documentation for new hire</span>
+                                    <span class="px-2 py-1 text-xs font-semibold text-white bg-yellow-500 rounded-full">Medium</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">Recent Activity</h3>
+                            <ul>
+                                <li class="flex items-center py-2">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    <span>Task "Q2 Financials" completed.</span>
+                                </li>
+                                <li class="flex items-center py-2">
+                                    <i class="fas fa-comment text-blue-500 mr-3"></i>
+                                    <span>New comment on "Project Alpha".</span>
+                                </li>
+                                <li class="flex items-center py-2">
+                                    <i class="fas fa-file-upload text-indigo-500 mr-3"></i>
+                                    <span>Uploaded "Design Mockups v2".</span>
+                                </li>
+                                <li class="flex items-center py-2">
+                                    <i class="fas fa-calendar-plus text-teal-500 mr-3"></i>
+                                    <span>New meeting scheduled for Friday.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const sidebar = document.getElementById('sidebar');
+
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+        });
+    </script>
+
+</body>
+</html>
