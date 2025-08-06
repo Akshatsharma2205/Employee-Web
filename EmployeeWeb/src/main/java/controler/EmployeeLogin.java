@@ -25,7 +25,6 @@ public class EmployeeLogin extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.getWriter().println("<h1>helll </h1>");
 		int employeeId = Integer.parseInt(request.getParameter("employee-id"));
 		String password = request.getParameter("employee-password");
 		EmployeeDao db = new EmployeeDao();
@@ -33,8 +32,8 @@ public class EmployeeLogin extends HttpServlet {
 		int flag = 0;
 		for (Employee em : li) {
 			if(employeeId == em.getEmployeeId()) {
-				flag++;
 				if(password.equals(em.getEmployeePassword())) {
+					flag++;
 					response.sendRedirect("employeeDasbord.html");
 				}
 			}
