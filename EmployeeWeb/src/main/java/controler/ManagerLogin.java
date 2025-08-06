@@ -7,24 +7,23 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/EmployeeLogin")
-public class EmployeeLogin extends HttpServlet {
+@WebServlet("/ManagerLogin")
+public class ManagerLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public EmployeeLogin() {
+	public ManagerLogin() {
 		super();
 	}
-	@Override
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
-	@Override
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int employeeId = Integer.parseInt(request.getParameter("employee-id"));
-		String password = request.getParameter("employee-password");
-		
+		int id = Integer.parseInt(request.getParameter("manager-id"));
+		String password = request.getParameter("manager-password");
 	}
 
 }
