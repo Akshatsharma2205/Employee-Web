@@ -11,8 +11,8 @@ public class EmployeeDao {
 
 	private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
 	private static final String URL = "jdbc:mysql://localhost:3306/InnoTech";
-	private static final String USERNAME = "root";
-	private static final String PASSWORD = "1234";
+	private static final String USERNAME = "";
+	private static final String PASSWORD = "";
 
 	public Connection getConnection() {
 		Connection conn = null;
