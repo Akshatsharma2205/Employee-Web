@@ -1,0 +1,93 @@
+class Node:
+    def init(self, data):
+        self.data = data
+        self.next = None
+
+        #~!   |  10  | None |  
+        #~?       Node         
+
+class LinkedList:
+    def init(self):
+        self.head = None
+        self.tail = None
+    
+    def insert(self, data):
+        new_node = Node(data)  #~% node (10)
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
+
+        else:
+            self.tail.next = new_node
+            self.tail = self.tail.next 
+    
+    def display(self):
+        if self.head is None:
+            print('empty')
+        else:
+            current = self.head
+            while current is not None:
+                print(current.data, end='->')
+                current = current.next 
+            print()
+
+    def first_remove(self):
+        if self.head is None:
+            print('empty')
+        elif self.head == self.tail:
+            print('element removed =',self.head.data )
+            self.head = None
+            self.tail = None
+        else:
+            print('element removed =',self.head.data )
+            self.head = self.head.next
+
+    def last_remove(self):
+        if self.head is None:
+            print('empty')
+        elif self.head == self.tail:
+            print('element removed =',self.head.data )
+            self.head = None
+            self.tail = None
+        else:
+            current = self.head
+            prev = None
+
+            while current.next is not None:
+                prev = current
+                current = current.next
+
+            print('element removed =', current.data)
+
+            prev.next = None
+            self.tail = prev
+
+    def remove_data(self, value):
+        if self.head is None:
+            print('empty')
+        elif self.head == self.tail:
+            print('element removed =',self.head.data )
+            self.head = None
+            self.tail = None
+        else:
+            prev = None
+            current = self.head
+            while current is not None:
+                if current.data == value:
+                    print('element removed',current.data)
+                    prev.next = current.next
+                    break
+                else:
+                    prev = current
+                    current = current.next
+            
+
+            
+                
+l1 = LinkedList()
+l1.insert(10)
+l1.insert(20)
+l1.insert('hello')
+l1.insert(40)
+l1.remove_data('hello')
+l1.display()
